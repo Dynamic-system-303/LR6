@@ -9,11 +9,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "DISCIPLINE")
-public class Discipline {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name")
+    @Column(name = "username", nullable = false, unique = true)
     private String name;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Enumerated
+    @Column(name = "role", nullable = false)
+    public Role role; // read_only, user, admin;
 }
