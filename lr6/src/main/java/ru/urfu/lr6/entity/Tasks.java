@@ -31,6 +31,8 @@ public class Tasks {
     @ManyToOne
     @JoinColumn(name = "assigned_to")
     private User assignedTo;
+    @Column(name = "created_by")
+    private String createdBy;
 
     @ManyToMany
     @JoinTable(

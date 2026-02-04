@@ -11,4 +11,5 @@ public interface TasksDao {
     public Tasks getOne(int id);
     public Tasks save(Tasks tasks);
     public void delete(int id);
+    public List<Tasks> findByCreatedBy(String username);
 }

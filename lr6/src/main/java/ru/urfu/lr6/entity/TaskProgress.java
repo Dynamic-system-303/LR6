@@ -19,12 +19,12 @@ public class TaskProgress {
     private int id;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User userId;
     @ManyToOne
     @JoinColumn(name = "task_id")
-    private Tasks task;
-    @Column(name = "text")
-    private int text;
+    private Tasks taskId;
+    @Column(name = "comment")
+    private int comment;
     @Column(name = "date")
     private LocalDate date;
 

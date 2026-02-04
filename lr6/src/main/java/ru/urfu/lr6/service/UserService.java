@@ -1,14 +1,15 @@
 package ru.urfu.lr6.service;
 
 import org.springframework.stereotype.Service;
+import ru.urfu.lr6.entity.Role;
 import ru.urfu.lr6.entity.User;
 
 import java.util.List;
 
-@Service
 public interface UserService {
     List<User> getAllUser();
-    User saveUser(User user);
-    User getUser(int id);
+    User findByUserName(String username);
+    User register(User user);
     void deleteUser(int id);
+    void changeRole(String username, Role role);;
 }

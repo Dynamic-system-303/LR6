@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактировать задачу</title>
+</head>
+<body>
+<h1>Редактировать задачу</h1>
+<form th:action="@{/tasks/edit}" th:object="${task}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Название:</label>
+    <input type="text" th:field="*{title}" /><br>
+    <label>Описание:</label>
+    <textarea th:field="*{description}"></textarea><br>
+    <label>Дата начала:</label>
+    <input type="date" th:field="*{startDate}" /><br>
+    <label>Дата окончания:</label>
+    <input type="date" th:field="*{endDate}" /><br>
+    <label>Статус:</label>
+    <input type="text" th:field="*{status}" /><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a th:href="@{/tasks}">Назад к списку задач</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Управление ролями</title>
+</head>
+<body>
+<h1>Управление ролями пользователей</h1>
+<table border="1">
+    <tr>
+        <th>Имя пользователя</th>
+        <th>Роль</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.role}"></td>
+    </tr>
+</table>
+
+<h2>Изменить роль пользователя</h2>
+<form th:action="@{/roles}" method="post">
+    <label>Пользователь:</label>
+    <input type="text" name="username" /><br>
+    <label>Новая роль:</label>
+    <select name="role">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+    </select><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a th:href="@{/}">На главную</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Создать задачу</title>
+</head>
+<body>
+<h1>Создать новую задачу</h1>
+<form th:action="@{/tasks/create}" th:object="${task}" method="post">
+    <label>Название:</label>
+    <input type="text" th:field="*{title}" /><br>
+    <label>Описание:</label>
+    <textarea th:field="*{description}"></textarea><br>
+    <label>Дата начала:</label>
+    <input type="date" th:field="*{startDate}" /><br>
+    <label>Дата окончания:</label>
+    <input type="date" th:field="*{endDate}" /><br>
+    <button type="submit">Создать</button>
+</form>
+<a th:href="@{/tasks}">Назад к списку задач</a>
+</body>
+</html>
+

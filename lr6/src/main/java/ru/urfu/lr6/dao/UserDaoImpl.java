@@ -1,6 +1,7 @@
 package ru.urfu.lr6.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,19 @@ public class UserDaoImpl implements UserDao {
     public User saveUser(User user) {
         return entityManager.merge(user);
     }
+
+    @Override
+    public User findByUserName(String username) {
+        try {
+            return entityManager.createQuery(
+                            "from User u where u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
 
     @Override
     public User getUser(int id) {

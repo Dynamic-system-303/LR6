@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Логи действий пользователей</title>
+</head>
+<body>
+<h1>Логи действий</h1>
+<table border="1">
+    <tr>
+        <th>Действие</th>
+    </tr>
+    <tr th:each="log : ${logs}">
+        <td th:text="${log}"></td>
+    </tr>
+</table>
+<a th:href="@{/}">На главную</a>
+</body>
+</html>

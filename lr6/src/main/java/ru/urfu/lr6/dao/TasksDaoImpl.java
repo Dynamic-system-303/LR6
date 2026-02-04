@@ -40,4 +40,13 @@ public class TasksDaoImpl implements TasksDao {
         query.setParameter("id", id);
         query.executeUpdate();
     }
+
+    @Override
+    public List<Tasks> findByCreatedBy(String username) {
+        return entityManager.createQuery(
+                        "from Tasks t where t.createdBy = :username", Tasks.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
+
 }

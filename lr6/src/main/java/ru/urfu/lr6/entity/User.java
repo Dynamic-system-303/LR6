@@ -15,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "username", nullable = false, unique = true)
-    private String name;
+    private String username;
     @Column(name = "password", nullable = false)
     private String password;
     @Enumerated
